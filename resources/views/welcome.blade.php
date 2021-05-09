@@ -52,21 +52,19 @@
 @endsection
 
 @section('content')
-<div class="row">
-    <div class="col-2">
-        <div class="card" style="width: 18rem;">
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-4 row-cols-xl-6">
+    <div class="col p-1">
+        <div class="card">
             <div class="card-header text-muted">
                 Начальник службы - помощник начальника штаба по ЗГТ
             </div>
-            <img src="{{ asset('storage/images/noPhoto.jpg') }}" class="card-img-top" alt="no photo">
+            <!-- <img src="{{ asset('storage/images/noPhoto.jpg') }}" class="card-img-top" alt="no photo"> -->
 
             <div class="card-body">
-                    <h6 class="card-title">полковник</h6>
-                <h5 class="card-title">Лобанов <br /> Александр Дмитриевич</h5>
-                <p class="card-text">08:00 - Находится в здании службы ЗГТ</p>
-                <p class="card-text">10:30 - Находится на территории штаба</p>
-                <p class="card-text">12:00 - Находится в здании службы ЗГТ</p>
-                <p class="card-text">13:00 - Убыл на обед</p>
+                    <h6 class="card-title my-0">полковник</h6>
+                <h5 class="card-title my-0">Лобанов <br /> Александр Дмитриевич</h5>
+                <p class="card-text border-top border-bottom py-2 mb-1">08:00 - Находится в здании службы ЗГТ</p>
+                
                 <div class="btn-group d-flex">
                     <button type="button" class="btn btn-danger">Никого не пускать!</button>
                     <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -100,15 +98,21 @@
                         </div>
                     </div>
                 <!-- </div> -->
+                <div class="btn-group d-flex mt-2">
+                    <button type="button" class="btn btn-success">История перемещений</button>
+                </div>    
 
             </div>
-            <div class="card-footer text-muted">
-                    Рабочий телефон: 9-39-54
+            <div class="card-footer text-muted py-0">
+                    Рабочие телефоны: 
+                    <p class="my-0 text-right"> АТС-Ц: 9-39-54 </p>
+                    <p class="my-0 text-right"> АТС-Р: 11-600-2270 </p>
             </div>
         </div>
     </div>
-    <div class="col-2">
-        <div class="card" style="width: 18rem;">
+
+    <div class="col p-1">
+        <div class="card">
         <img src="{{ asset('storage/images/noPhoto.jpg') }}" class="card-img-top" alt="no photo">
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
@@ -117,8 +121,9 @@
             </div>
         </div>
     </div>
-    <div class="col-2">
-        <div class="card" style="width: 18rem;">
+
+    <div class="col p-1">
+        <div class="card">
         <img src="{{ asset('storage/images/noPhoto.jpg') }}" class="card-img-top" alt="no photo">
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
@@ -127,8 +132,8 @@
             </div>
         </div>
     </div>
-    <div class="col-2">
-        <div class="card" style="width: 18rem;">
+    <div class="col p-1">
+        <div class="card">
         <img src="{{ asset('storage/images/noPhoto.jpg') }}" class="card-img-top" alt="no photo">
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
@@ -137,8 +142,8 @@
             </div>
         </div>
     </div>
-    <div class="col-2">
-        <div class="card" style="width: 18rem;">
+    <div class="col p-1">
+        <div class="card">
         <img src="{{ asset('storage/images/noPhoto.jpg') }}" class="card-img-top" alt="no photo">
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
@@ -147,8 +152,8 @@
             </div>
         </div>
     </div>
-    <div class="col-2">
-        <div class="card" style="width: 18rem;">
+    <div class="col p-1">
+        <div class="card">
         <img src="{{ asset('storage/images/noPhoto.jpg') }}" class="card-img-top" alt="no photo">
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
