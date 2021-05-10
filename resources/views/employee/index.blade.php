@@ -53,18 +53,20 @@
 
 @section('content')
 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-4 row-cols-xl-6">
+
+    @foreach ($employees as $employee)
     <div class="col p-1">
         <div class="card">
             <div class="card-header text-muted">
-                Начальник службы - помощник начальника штаба по ЗГТ
+                {{ $employee->position }}
             </div>
             <!-- <img src="{{ asset('storage/images/noPhoto.jpg') }}" class="card-img-top" alt="no photo"> -->
 
             <div class="card-body">
-                    <h6 class="card-title my-0">полковник</h6>
-                <h5 class="card-title my-0">Лобанов <br /> Александр Дмитриевич</h5>
-                <p class="card-text border-top border-bottom py-2 mb-1">08:00 - Находится в здании службы ЗГТ</p>
-                
+                    <h6 class="card-title my-0">{{ $employee->military_rank }}</h6>
+                <h5 class="card-title my-0">{{ $employee->full_name }}
+                <p class="card-text border-top border-bottom py-2 mb-1">FROM TABLE STATUS</p>
+
                 <div class="btn-group d-flex">
                     <button type="button" class="btn btn-danger">Никого не пускать!</button>
                     <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -100,18 +102,18 @@
                 <!-- </div> -->
                 <div class="btn-group d-flex mt-2">
                     <button type="button" class="btn btn-success">История перемещений</button>
-                </div>    
+                </div>
 
             </div>
             <div class="card-footer text-muted py-0">
-                    Рабочие телефоны: 
+                    Рабочие телефоны:
                     <p class="my-0 text-right"> АТС-Ц: 9-39-54 </p>
                     <p class="my-0 text-right"> АТС-Р: 11-600-2270 </p>
             </div>
         </div>
     </div>
-
-    <div class="col p-1">
+    @endforeach
+    <!-- <div class="col p-1">
         <div class="card">
         <img src="{{ asset('storage/images/noPhoto.jpg') }}" class="card-img-top" alt="no photo">
             <div class="card-body">
@@ -162,6 +164,6 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 @endsection
