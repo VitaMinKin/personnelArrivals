@@ -46,6 +46,9 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Весь личный состав 882 ЦЗИ</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('employees.create') }}">Создать карточку должностного лица</a>
+      </li>
     </ul>
   </div>
 </nav>
@@ -103,7 +106,8 @@
                 <div class="btn-group d-flex mt-2">
                     <button type="button" class="btn btn-success">История перемещений</button>
                 </div>
-
+                <a href="{{ route('employees.edit', $employee) }}">редактировать</a>
+                <a href="{{ route('employees.destroy', $employee) }}" data-method="delete" data-confirm="Вы уверены?" rel="nofollow">Удалить</a>
             </div>
             <div class="card-footer text-muted py-0">
                     Рабочие телефоны:

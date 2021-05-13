@@ -13,4 +13,60 @@ class EmployeeController extends Controller
 
         return view('employee.index', compact('employees'));
     }
+
+    public function create()
+    {
+        $employee = new Employee();
+
+        return view('employee.create', compact('employee'));
+    }
+
+    public function store(Request $request)
+    {
+        $data = $this->validate($request, [
+            "military_rank" => "required",
+            "full_name" => "required|unique:employees",
+            "position" => "required|unique:employees"
+        ]);
+
+        $employee = new Employee();
+        $employee->fill($data);
+        $employee->save();
+
+        return redirect()->route('employees.index');
+    }
+
+    public function edit($id)
+    {
+        $employee = Employee::findOrFail($id);
+
+        return view('employee.edit', compact('employee'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $employee = Employee::findOrFail($id);
+
+        $data = $this->validate($request, [
+            'military_rank' => "required",
+            "full_name" => "required",
+            "position" => "required"
+        ]);
+
+        $employee->fill($data);
+        $employee->save();
+
+        return redirect()->route('employees.index');
+    }
+
+    public function destroy($id)
+    {
+        $employee = Employee::find($id);
+
+        if ($employee) {
+            $employee->delete();
+        }
+
+        return redirect()->route('employees.index');
+    }
 }
