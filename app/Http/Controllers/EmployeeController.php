@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Employee;
+use Carbon\Carbon;
 
 class EmployeeController extends Controller
 {
@@ -69,4 +70,26 @@ class EmployeeController extends Controller
 
         return redirect()->route('employees.index');
     }
+
+
+    public function list()
+    {
+        $employees = Employee::all();
+
+        return view('employee.list', compact('employees'));
+    }
+
+    public function notify($id)
+    {
+        $employee = Employee::findOrFail($id);
+
+        $employee->highAlerts()->create([
+            "notifying_officer" => $id,
+            "alert_signal" => 1,
+            "time_alert" => Carbon::now()
+        ]);
+
+        return redirect()->back();
+    }
+
 }

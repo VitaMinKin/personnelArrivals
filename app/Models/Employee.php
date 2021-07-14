@@ -14,4 +14,15 @@ class Employee extends Model
         "full_name",
         "position"
     ];
+
+    public function contact()
+    {
+        return $this->hasOne(Contact::class);
+    }
+
+    public function highAlerts()
+    {
+        return $this->belongsToMany(HighAlert::class);
+    }
+
 }
