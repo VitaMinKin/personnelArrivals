@@ -82,7 +82,7 @@
               <td> 
                 @php
                   
-                  $highAlerts = $employee->highAlerts()->get();
+                  $highAlerts = $employee->highAlerts()->whereDate("time_alert", \Carbon\Carbon::today()->toDateString())->get();
                   
                 @endphp
 
