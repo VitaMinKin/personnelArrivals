@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\AlertSignalsController;
 use App\Models\Employee;
 use Illuminate\Support\Facades\Route;
 
@@ -15,7 +16,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [EmployeeController::class, 'index'])->name('index');
+Route::get('/', [AlertSignalsController::class, 'index'])->name('alertSignals.index');
+Route::get("setSignal/{id}", [AlertSignalsController::class, 'create'])->name("alertSignals.create");
+Route::get("alerts/{id}/edit", [AlertSignalsController::class, "edit"])->name("alertSignals.edit");
+Route::get("alerts/{id}", [AlertSignalsController::class, 'show'])->name("alertSignals.show");
+Route::get("alerts", [AlertSignalsController::class, 'list'])->name("alertSignals.list");
+Route::post("setSignal", [AlertSignalsController::class, "store"])->name("alertSignals.store");
+Route::patch("alerts/{id}", [AlertSignalsController::class, "update"])->name("alertSignals.update");
+
+
 Route::get('employees/cards', [EmployeeController::class, 'cards'])->name('employees.cards');
 Route::get('employees/create', [EmployeeController::class, 'create'])->name('employees.create');
 Route::post('employees', [EmployeeController::class, 'store'])->name('employees.store');

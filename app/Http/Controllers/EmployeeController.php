@@ -8,14 +8,7 @@ use Carbon\Carbon;
 
 class EmployeeController extends Controller
 {
-    public function index()
-    {
-        $employees = Employee::all();
-
-        return view('index', compact('employees'));
-    }
-
-    public function cards()
+        public function cards()
     {
         $employees = Employee::all();
 

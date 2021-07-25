@@ -5,7 +5,8 @@
   <div class="col">
 
     <div class="jumbotron">
-      <a href="#" class="display-2 
+      
+      <a href="/setSignal/100" class="display-2 
         p-5 m-0 
         text-decoration-none 
         text-monospace 
@@ -16,7 +17,7 @@
           <p class="mt-1 mb-0 p-0">ПОСТОЯННАЯ</p>
       </a>
 
-      <a href="#" class="display-2 
+      <a href="/setSignal/101" class="display-2 
         p-5 m-0 
         text-decoration-none 
         text-monospace 
@@ -27,7 +28,7 @@
           <p class="mt-1 mb-0 p-0">ПОВЫШЕННАЯ</p>
       </a>
 
-      <a href="#" class="display-2 
+      <a href="/setSignal/102" class="display-2 
         p-5 m-0 
         text-decoration-none 
         text-monospace 
@@ -38,7 +39,7 @@
           <p class="mt-1 mb-0 p-0">ВОЕННАЯ ОПАСНОСТЬ</p>
       </a>
 
-      <a href="#" class="display-1 
+      <a href="/setSignal/103" class="display-1 
         p-5 m-0 
         text-decoration-none 
         text-monospace 

@@ -87,24 +87,29 @@
                 @endphp
 
                 @if (!$highAlerts->isEmpty())
+
                   @foreach ($highAlerts as $highAlert)
                     {{ $highAlert->time_alert }}
                   @endforeach
+                  
                 @else
+
                   {{ Form::model($employee, ['url' => route('employees.notify', $employee), 'method' => 'PATCH']) }}
                   <div class="col-auto">
                       {{ Form::submit('Оповещен!') }} 
                     </div>
                   {{ Form::close() }} 
+
                 @endif
 
               </td>
-              <td> <form>
-                <div class="col-auto">
+              <td> 
+                <form>
+                  <div class="col-auto">
                     <button type="submit" class="btn btn-primary mb-3">Прибыл</button>
                   </div>
                 </form> 
-                </td>
+              </td>
             </tr>
           @endforeach
           </tbody>

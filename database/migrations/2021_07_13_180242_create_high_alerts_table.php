@@ -16,7 +16,7 @@ class CreateHighAlertsTable extends Migration
         Schema::create('high_alerts', function (Blueprint $table) {
             $table->id();
             $table->integer("notifying_officer")->references("id")->on("employees")->onUpdate("cascade")->unsigned()->nullable()->onDelete("set null");
-            $table->smallInteger("alert_signal")->references("id")->on("alert_signals")->unsigned()->nullable()->onDelete("set null");
+            $table->smallInteger("alert_signal")->references("id")->on("current_alerts")->onDelete("cascade")->onUpdate("cascade");
             $table->dateTime("time_alert");
             $table->dateTime("arrivals_time")->nullable();
         });
