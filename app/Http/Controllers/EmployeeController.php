@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Employee;
+use App\Models\HighAlert;
 use Carbon\Carbon;
 
 class EmployeeController extends Controller
@@ -88,6 +89,18 @@ class EmployeeController extends Controller
             "alert_signal" => 1,
             "time_alert" => Carbon::now()
         ]);
+
+        return redirect()->back();
+    }
+
+    public function arrived($employeeId, $arrivedId)
+    {
+        //$employee = Employee::findOrFail($employeeId);
+        $arrival = HighAlert::findOrFail($arrivedId);
+
+        $arrival->arrivals_time = Carbon::now();
+
+        $arrival->save();
 
         return redirect()->back();
     }

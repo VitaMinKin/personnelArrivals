@@ -17,7 +17,7 @@ class CreateHighAlertsTable extends Migration
             $table->id();
             $table->integer("notifying_officer")->references("id")->on("employees")->onUpdate("cascade")->unsigned()->nullable()->onDelete("set null");
             $table->smallInteger("alert_signal")->references("id")->on("current_alerts")->onDelete("cascade")->onUpdate("cascade");
-            $table->dateTime("time_alert");
+            $table->dateTime("time_alert")->nullable();
             $table->dateTime("arrivals_time")->nullable();
         });
     }

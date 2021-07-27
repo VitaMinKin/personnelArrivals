@@ -79,36 +79,52 @@
               <td> <a href="{{ route('employees.edit', $employee) }} "> {{ $employee->full_name }}</a></td>
               <td>{{ $employee->position }}</td>
               <td> {{ $employee->contact->mobile_phone_number ?? "Отсутствует" }} </td>
-              <td> 
+              <td>
                 @php
-                  
+
                   $highAlerts = $employee->highAlerts()->whereDate("time_alert", \Carbon\Carbon::today()->toDateString())->get();
-                  
+
+
                 @endphp
 
                 @if (!$highAlerts->isEmpty())
 
-                  @foreach ($highAlerts as $highAlert)
-                    {{ $highAlert->time_alert }}
+                  @foreach ($highAlerts as $alert)
+                    {{ $alert->time_alert }}
                   @endforeach
-                  
+
                 @else
 
                   {{ Form::model($employee, ['url' => route('employees.notify', $employee), 'method' => 'PATCH']) }}
                   <div class="col-auto">
-                      {{ Form::submit('Оповещен!') }} 
+                      {{ Form::submit('Оповещен!') }}
                     </div>
-                  {{ Form::close() }} 
+                  {{ Form::close() }}
 
                 @endif
 
               </td>
-              <td> 
-                <form>
-                  <div class="col-auto">
-                    <button type="submit" class="btn btn-primary mb-3">Прибыл</button>
-                  </div>
-                </form> 
+              <td>
+                @php
+                    if (!$highAlerts->isEmpty()) {
+                        foreach ($highAlerts as $alert) {
+                            if ($alert->arrivals_time) {
+                                echo $alert->arrivals_time;
+                            }
+                            else {
+                                echo Form::model($employee, ['url' => route('employees.arrived', ['id' => $employee->id, 'arrivalId' => $alert->id]), 'method' => 'PATCH']);
+                                echo "<div class='col-auto'>";
+                                echo Form::submit('Прибыл!');
+                                echo "</div>";
+                                echo Form::close();
+                            }
+                        }
+                    } else {
+                        echo "Сначала необходимо оповестить!";
+                    }
+                @endphp
+
+
               </td>
             </tr>
           @endforeach
@@ -116,7 +132,7 @@
       </table>
     </div>
   </div>
-  
+
 </div>
 
 @endsection

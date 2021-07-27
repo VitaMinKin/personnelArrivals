@@ -31,7 +31,6 @@ Route::post('employees', [EmployeeController::class, 'store'])->name('employees.
 Route::get('employees/list', [EmployeeController::class, 'list'])->name('employees.list');
 Route::get('employees/{id}/edit', [EmployeeController::class, 'edit'])->name('employees.edit');
 Route::patch('employees/{id}/notify', [EmployeeController::class, 'notify'])->name('employees.notify');
+Route::patch('employees/{id}/arrived/{arrivalId}', [EmployeeController::class, 'arrived'])->name('employees.arrived');
 Route::patch('employees/{id}', [EmployeeController::class, 'update'])->name('employees.update');
 Route::delete('employess/{id}', [EmployeeController::class, 'destroy'])->name('employees.destroy');
-
-
