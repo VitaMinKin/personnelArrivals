@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use Illuminate\Http\Request;
 use App\Models\Employee;
 use App\Models\HighAlert;
@@ -28,14 +29,18 @@ class EmployeeController extends Controller
         $data = $this->validate($request, [
             "military_rank" => "required",
             "full_name" => "required|unique:employees",
-            "position" => "required|unique:employees"
+            "position" => "required",
+            "mobile_phone_number" => ""
         ]);
 
         $employee = new Employee();
         $employee->fill($data);
         $employee->save();
 
-        return redirect()->route('employees.index');
+        $contact = new Contact(["mobile_phone_number" => $data['mobile_phone_number']]);
+        $employee->contact()->save($contact);
+
+        return redirect()->route('employees.list');
     }
 
     public function edit($id)
@@ -52,13 +57,17 @@ class EmployeeController extends Controller
         $data = $this->validate($request, [
             'military_rank' => "required",
             "full_name" => "required",
-            "position" => "required"
+            "position" => "required",
+            "mobile_phone_number" => ""
         ]);
 
         $employee->fill($data);
         $employee->save();
 
-        return redirect()->route('employees.index');
+        $employee->contact()->delete();
+        $employee->contact()->create(["mobile_phone_number" => $data["mobile_phone_number"]]);
+
+        return redirect()->route('employees.list');
     }
 
     public function destroy($id)

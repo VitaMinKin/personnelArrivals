@@ -19,51 +19,21 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Управление СЗГТ <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/"> Начальная страница <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Отделения СЗГТ
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Секретное отделение</a>
-                        <a class="dropdown-item" href="#">Отделение ОРС</a>
-                        <a class="dropdown-item" href="#">Отделение обработки информации</a>
-                        <a class="dropdown-item" href="#">Отделение защиты информации</a>
-                        <a class="dropdown-item" href="#">Отделение СОПКА</a>
-                        </div>
-                    </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Весь личный состав СЗГТ</a>
+                        <a class="nav-link" href="{{ route('employees.list') }}"> Личный состав </a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Управление 882 ЦЗИ</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Отделения 882 ЦЗИ
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Секретное отделение</a>
-                        <a class="dropdown-item" href="#">Отдел ОШИ</a>
-                        <a class="dropdown-item" href="#">Отдел ОБИ</a>
-                        <a class="dropdown-item" href="#">Отдел ТЗИ</a>
-                        <a class="dropdown-item" href="#">Отделение Спецаппаратных</a>
-                        <a class="dropdown-item" href="#">Отделение ХТСС</a>
-                        <a class="dropdown-item" href="#">Отделение ПКД</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Весь личный состав 882 ЦЗИ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('employees.create') }}">Создать карточку должностного лица</a>
+                        <a class="nav-link" href="{{ route('alertSignals.list') }}"> Текущая обстановка </a>
                     </li>
                     </ul>
                 </div>
             </nav>
 
-            
+
         @show
         </div>
         <div class="container-fluid pt-5">
