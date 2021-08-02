@@ -19,7 +19,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="/"> Начальная страница <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/"> Текущая обстановка <span class="sr-only">(current)</span></a>
                     </li>
 
                     <li class="nav-item">
@@ -27,7 +27,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('alertSignals.list') }}"> Текущая обстановка </a>
+                        <a class="nav-link" href="{{ route('alertSignals.list') }}"> Изменения обстановки </a>
                     </li>
                     </ul>
                 </div>

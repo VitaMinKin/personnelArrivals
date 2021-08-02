@@ -33,7 +33,7 @@ class AlertSignalsController extends Controller
             "begin_time" => Carbon::now()
         ]);
 
-        return view("alertSignals.create", compact("currentAlert", "signalsList")); 
+        return view("alertSignals.create", compact("currentAlert", "signalsList"));
     }
 
 
@@ -59,7 +59,7 @@ class AlertSignalsController extends Controller
         $currentAlert = new CurrentAlert();
         $currentAlert->fill($data);
         $currentAlert->save();
-        return redirect()->route("employees.list");
+        return redirect()->route("alertSignals.employees", ["alertId" => $currentAlert->id]);
     }
 
     public function show($id)
@@ -96,5 +96,13 @@ class AlertSignalsController extends Controller
         $currentAlert->save();
 
         return redirect()->route("alertSignals.show", $currentAlert);
+    }
+
+    public function employeesList($alertId)
+    {
+        $currentAlert = CurrentAlert::findOrFail($alertId);
+
+        $employees = Employee::all();
+        return view('alertSignals.employees', compact('employees', 'currentAlert'));
     }
 }

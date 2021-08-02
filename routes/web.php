@@ -23,14 +23,15 @@ Route::get("alerts/{id}", [AlertSignalsController::class, 'show'])->name("alertS
 Route::get("alerts", [AlertSignalsController::class, 'list'])->name("alertSignals.list");
 Route::post("setSignal", [AlertSignalsController::class, "store"])->name("alertSignals.store");
 Route::patch("alerts/{id}", [AlertSignalsController::class, "update"])->name("alertSignals.update");
+Route::get("alerts/{alertId}/employees", [AlertSignalsController::class, 'employeesList'])->name("alertSignals.employees");
 
 
+Route::get('employees', [EmployeeController::class, 'list'])->name('employees.list');
 Route::get('employees/cards', [EmployeeController::class, 'cards'])->name('employees.cards');
 Route::get('employees/create', [EmployeeController::class, 'create'])->name('employees.create');
 Route::post('employees', [EmployeeController::class, 'store'])->name('employees.store');
-Route::get('employees/list', [EmployeeController::class, 'list'])->name('employees.list');
 Route::get('employees/{id}/edit', [EmployeeController::class, 'edit'])->name('employees.edit');
-Route::patch('employees/{id}/notify', [EmployeeController::class, 'notify'])->name('employees.notify');
+Route::patch('employees/{id}/alerts/{alertId}/notify', [EmployeeController::class, 'notify'])->name('employees.notify');
 Route::patch('employees/{id}/arrived/{arrivalId}', [EmployeeController::class, 'arrived'])->name('employees.arrived');
 Route::patch('employees/{id}', [EmployeeController::class, 'update'])->name('employees.update');
 Route::delete('employess/{id}', [EmployeeController::class, 'destroy'])->name('employees.destroy');

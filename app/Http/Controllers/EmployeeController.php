@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Models\CurrentAlert;
 use Illuminate\Http\Request;
 use App\Models\Employee;
 use App\Models\HighAlert;
@@ -89,13 +90,14 @@ class EmployeeController extends Controller
         return view('employee.list', compact('employees'));
     }
 
-    public function notify($id)
+    public function notify($id, $alertId)
     {
         $employee = Employee::findOrFail($id);
+        $currentAlert = CurrentAlert::findOrFail($alertId);
 
         $employee->highAlerts()->create([
             "notifying_officer" => $id,
-            "alert_signal" => 1,
+            "alert_signal" => $currentAlert->id,
             "time_alert" => Carbon::now()
         ]);
 
