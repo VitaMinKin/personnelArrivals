@@ -105,4 +105,14 @@ class AlertSignalsController extends Controller
         $employees = Employee::all();
         return view('alertSignals.employees', compact('employees', 'currentAlert'));
     }
+
+    public function cancel($alertId)
+    {
+        $currentAlert = CurrentAlert::findOrFail($alertId);
+
+        $currentAlert->cancelled = Carbon::now();
+        $currentAlert->save();
+
+        return redirect()->back();
+    }
 }

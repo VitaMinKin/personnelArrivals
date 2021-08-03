@@ -23,6 +23,7 @@ Route::get("alerts/{id}", [AlertSignalsController::class, 'show'])->name("alertS
 Route::get("alerts", [AlertSignalsController::class, 'list'])->name("alertSignals.list");
 Route::post("setSignal", [AlertSignalsController::class, "store"])->name("alertSignals.store");
 Route::patch("alerts/{id}", [AlertSignalsController::class, "update"])->name("alertSignals.update");
+Route::patch("alerts/{id}/cancel", [AlertSignalsController::class, "cancel"])->name("alertSignals.cancel");
 Route::get("alerts/{alertId}/employees", [AlertSignalsController::class, 'employeesList'])->name("alertSignals.employees");
 
 
